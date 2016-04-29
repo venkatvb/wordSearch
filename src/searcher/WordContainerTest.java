@@ -32,5 +32,14 @@ public class WordContainerTest extends TestCase {
 	
 	public void testCount() {
 		WordContainer wc = new WordContainer();
+		int count;
+		count = wc.count();
+		assertEquals(count, 0);
+		wc.addString("venkat");
+		count = wc.count();
+		assertEquals(count, 1);
+		wc.addString("vb");
+		count = wc.count();
+		assertEquals(count, 2);
 	}
 }
