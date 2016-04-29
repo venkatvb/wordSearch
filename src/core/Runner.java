@@ -20,7 +20,10 @@ public class Runner {
 		int numberOfStrings;
 		if(DEBUG)
 		System.out.println("Enter the number of words");
-		DataInputStream dis = new DataInputStream(new FileInputStream(Config.INPUT_FILE_LOCATION));
+		// To read from file
+		// DataInputStream dis = new DataInputStream(new FileInputStream(Config.INPUT_FILE_LOCATION));
+		// To read the contents from the standard output stream
+		DataInputStream dis = new DataInputStream(System.in);
 		numberOfStrings = Integer.parseInt(dis.readLine());
 		for(int i=0; i<numberOfStrings; i++ ) {
 			String word = dis.readLine();
@@ -60,6 +63,23 @@ public class Runner {
 			System.out.println("Failed to read the binary data from file");
 			e.printStackTrace();
 		}
-
+		int qCount= 0;
+		if(DEBUG) {
+			System.out.println("Enter the numebr of queries");
+		}
+		qCount = Integer.parseInt(dis.readLine());
+		while(true) {
+			if(qCount <= 0) {
+				break;
+			}
+			String word = dis.readLine();
+			boolean found = words.isPresent(word);
+			if(found) {
+				System.out.println("The word " + word + " is found");
+			} else {
+				System.out.println("The workd " + word + " is NOT found");
+			}
+			qCount -= 1;
+		}
 	}
 }

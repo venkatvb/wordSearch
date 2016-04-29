@@ -11,14 +11,25 @@ import java.nio.channels.FileChannel;
 import java.util.ArrayList;
 import java.util.Collections;
 
+
 import buildConfig.Config;
 
-public class WordContainer {	
+public class WordContainer implements Search {	
 	
 	private ArrayList<Long> words;
 	
 	public WordContainer() {
 		words = new ArrayList<Long>();
+	}
+	
+	public int count() {
+		return this.words.size();
+	}
+	
+	public boolean isPresent(String s) {
+		Long value = getLongOfString(s);
+		int index = Collections.binarySearch(words, value);
+		return index >= 0;
 	}
 	
 	// Returns true only if the string is valid
@@ -80,6 +91,7 @@ public class WordContainer {
 	}
 	
 	public boolean addString(String input) {
+		input = input.trim();
 		if(!validateString(input)) {
 			return false;
 		}
