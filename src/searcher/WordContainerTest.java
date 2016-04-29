@@ -11,9 +11,8 @@ public class WordContainerTest extends TestCase {
 		boolean result;
 		result = wc.addString("venkat");
 		assertEquals(result, true);
-		// checking duplicates
 		result = wc.addString("venkat");
-		assertEquals(result, false);
+		assertEquals(result, true);
 		result = wc.addString("vb");
 		assertEquals(result, true);
 		result = wc.addString("Vb");
@@ -22,13 +21,13 @@ public class WordContainerTest extends TestCase {
 		assertEquals(result, true);
 		result = wc.addString("lengthisgreaterthantwelve");
 		assertEquals(result, false);
-		result = wc.addString("    svb    ");
+		result = wc.addString("    vb    ");
 		assertEquals(result, true);
 		result = wc.addString("123");
 		assertEquals(result, false);
 		result = wc.addString("ven@");
 		assertEquals(result, false);
-		result = wc.addString("                               qvb                  ");
+		result = wc.addString("                               vb                  ");
 		assertEquals(result, true);
 		result = wc.addString("v b");
 		assertEquals(result, false);
@@ -48,7 +47,7 @@ public class WordContainerTest extends TestCase {
 		assertEquals(count, 2);
 		wc.addString("venkat");
 		count = wc.count();
-		assertEquals(count, 2);
+		assertEquals(count, 3);
 	}
 	
 }

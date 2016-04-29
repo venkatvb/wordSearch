@@ -84,10 +84,6 @@ public class WordContainer implements Search {
 		if(!StringHelper.validateString(input)) {
 			return false;
 		}
-		// Return false if the input string is already present in the ArrayList
-		if(isPresent(input)) {
-			return false;
-		}
 		Long value = getLongOfString(input);
 		words.add(value);
 		Config.debug(value.toString());

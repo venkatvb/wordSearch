@@ -31,9 +31,6 @@ public class WordContainerBrute implements Search {
 		if(!valid) {
 			return false;
 		}
-		if(isPresent(s)) {
-			return false;
-		}
 		words.add(s);
 		return true;
 	}
