@@ -26,28 +26,17 @@ public class WordContainer implements Search {
 		return this.words.size();
 	}
 	
+	public boolean isSorted() {
+		return true;
+	}
+	
 	public boolean isPresent(String s) {
 		Long value = getLongOfString(s);
 		int index = Collections.binarySearch(words, value);
 		return index >= 0;
 	}
 	
-	// Returns true only if the string is valid
-	// that is it doesn't contain any characters other than [a-z]
-	// the length of the string must be <= 30
-	private boolean validateString(String input) {
-		if(input.length() > 12) {
-			return false;
-		}
-		char ch[] = input.toCharArray();
-		for(int i=0; i<input.length(); i++ ) {
-			if(ch[i] >= 'a' && ch[i] <= 'z') {
-				continue;
-			}
-			return false;
-		}
-		return true;
-	}
+	
 	
 	private Long getLongOfString(String input) {
 		long result = 0;
@@ -92,7 +81,11 @@ public class WordContainer implements Search {
 	
 	public boolean addString(String input) {
 		input = input.trim();
-		if(!validateString(input)) {
+		if(!StringHelper.validateString(input)) {
+			return false;
+		}
+		// Return false if the input string is already present in the ArrayList
+		if(isPresent(input)) {
 			return false;
 		}
 		Long value = getLongOfString(input);

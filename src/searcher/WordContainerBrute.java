@@ -1,20 +1,40 @@
 package searcher;
 
-public class WordContainerBrute implements Search {
+import java.util.ArrayList;
 
+public class WordContainerBrute implements Search {
+	
+	ArrayList<String> words;
+	
+	public WordContainerBrute() {
+		words = new ArrayList<String>();
+	}
+	
 	public int count() {
-		return 0;
+		return this.words.size();
 	}
 	
 	@Override
 	public boolean isPresent(String s) {
-		// TODO Auto-generated method stub
+		for(String word : words) {
+			if(s.equals(word)) {
+				return true;
+			}
+		}
 		return false;
 	}
 
 	@Override
 	public boolean addString(String s) {
-		// TODO Auto-generated method stub
-		return false;
+		s = s.trim();
+		boolean valid = StringHelper.validateString(s);
+		if(!valid) {
+			return false;
+		}
+		if(isPresent(s)) {
+			return false;
+		}
+		words.add(s);
+		return true;
 	}
 }

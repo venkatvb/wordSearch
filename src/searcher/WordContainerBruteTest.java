@@ -1,13 +1,10 @@
 package searcher;
 
-import java.util.Random;
-
 import junit.framework.TestCase;
 
-public class WordContainerTest extends TestCase {
-	
+public class WordContainerBruteTest extends TestCase {
 	public void testAddString() {
-		WordContainer wc = new WordContainer();
+		WordContainerBrute wc = new WordContainerBrute();
 		boolean result;
 		result = wc.addString("venkat");
 		assertEquals(result, true);
@@ -36,7 +33,7 @@ public class WordContainerTest extends TestCase {
 	}
 	
 	public void testCount() {
-		WordContainer wc = new WordContainer();
+		WordContainerBrute wc = new WordContainerBrute();
 		int count;
 		count = wc.count();
 		assertEquals(count, 0);
@@ -50,5 +47,4 @@ public class WordContainerTest extends TestCase {
 		count = wc.count();
 		assertEquals(count, 2);
 	}
-	
 }
