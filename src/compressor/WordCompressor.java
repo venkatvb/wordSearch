@@ -67,7 +67,7 @@ public class WordCompressor implements Compressable {
 	@Override
 	public boolean writeToFile(String address) {
 		try {
-			DataOutputStream dos = new DataOutputStream(new FileOutputStream(Config.DATA_FILE_LOCATION));
+			DataOutputStream dos = new DataOutputStream(new FileOutputStream(address));
 			writeToDataOutputStream(dos);
 		} catch(Exception e) {
 			Config.debug("Exception in writeToFile : " + CLASS_NAME + e);
