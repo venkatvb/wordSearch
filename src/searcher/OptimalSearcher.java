@@ -9,10 +9,12 @@ import java.nio.channels.FileChannel;
 import java.util.ArrayList;
 import java.util.Collections;
 
+import brutesearcher.LinearSearcher;
+
 public class OptimalSearcher implements Searchable{
 	
 	private ArrayList<Long> words;
-	public static final String CLASS_NAME = OptimalSearcher.class.getSimpleName();
+	public static final String CLASS_NAME = LinearSearcher.class.getSimpleName();
 	
 	public OptimalSearcher(String address, int n) {
 		words = new ArrayList<>();
@@ -43,9 +45,4 @@ public class OptimalSearcher implements Searchable{
 		System.out.println("The index is " + index);
 		return index >= 0;
 	}
-	
-	public int count() {
-		return this.words.size();
-	}
-	
 }

@@ -1,4 +1,4 @@
-package searcher;
+package brutesearcher;
 
 import java.util.Scanner;
 
@@ -13,7 +13,7 @@ public class Run {
 		} else {
 			String address = args[0];
 			int count = Integer.parseInt(args[1]);
-			OptimalSearcher os = new OptimalSearcher(address, count);
+			LinearSearcher os = new LinearSearcher(address, count);
 			System.out.println("Enter the number of search words : ");
 			@SuppressWarnings("resource")
 			Scanner sc = new Scanner(System.in);
